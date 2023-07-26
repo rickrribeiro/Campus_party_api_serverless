@@ -32,9 +32,6 @@ const TodoItem = ({ props }) => {
       <span class="badge badge-sm bg-gradient-secondary">Todo</span>}
       
     </td>
-    <td class="align-middle text-center text-sm">
-      <span class="text-secondary text-xs font-weight-bold">{updated} </span>
-    </td>
 
     <td class="align-middle text-center text-sm">
       <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user">

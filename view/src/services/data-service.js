@@ -12,13 +12,10 @@ export default class DataService {
     return response.data || [];
   }
 
-  async createItem(users, message) {
-    const payload = {
-      users,
-      message,
-    };
-    await axios.post(url + `/create`, payload, {
-      headers: { "Access-Control-Allow-Origin": "*" },
+  async createItem(item) {
+    const response = await axios.post(url + `/create`, item, {
+     
     });
+    console.log(response)
   }
 }

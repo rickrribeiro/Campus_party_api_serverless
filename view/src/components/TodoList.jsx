@@ -1,6 +1,8 @@
+import DataService from "../services/data-service";
 import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
+  const dataService = new DataService()
   const {
     items
   } = props.props;
@@ -48,7 +50,6 @@ const TodoList = (props) => {
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Updated</th>
                         <th class="text-secondary opacity-7"></th>
                       </tr>
                     </thead>
@@ -62,7 +63,11 @@ const TodoList = (props) => {
                   </table>
                 </div>
               </div>
-              <button>
+              <button onClick={() => dataService.createItem({
+                name: 'name'+Math.random(),
+                description: 'description'+Math.random(),
+                status: true,
+              })}>
               <div class="card-add position-relative z-index-2">
                   <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 text-center">
                     <h6 class="text-white text-capitalize ps-3">+</h6>
