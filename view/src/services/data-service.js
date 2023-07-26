@@ -1,28 +1,23 @@
 import axios from "axios";
 
-const url = "http://127.0.0.1:3001";
-
+const url = "https://1lam20h9i7.execute-api.us-east-1.amazonaws.com/prod";
+// const url = "https://dhiwrutwdf.execute-api.us-east-1.amazonaws.com/teste";
 export default class DataService {
   async getTodoItems() {
-    // const matches = await axios.get(url + "/newMatches", {
-    //   headers: { "Access-Control-Allow-Origin": "*" },
-    // });
-    // return matches.data;
-    return [{
-      name: 'testen',
-      description: 'testd',
-      status: true,
-      updated: '31/03/1999',
-      id: '123312312'
-    }]
+    const response = await axios.get(url + "/todoItems").catch((err) => {
+      console.log(err)
+      return []
+    });
+    console.log(response.data)
+    return response.data || [];
   }
 
-  async sendMessage(users, message) {
+  async createItem(users, message) {
     const payload = {
       users,
       message,
     };
-    await axios.post(url + `/sendMessages`, payload, {
+    await axios.post(url + `/create`, payload, {
       headers: { "Access-Control-Allow-Origin": "*" },
     });
   }
